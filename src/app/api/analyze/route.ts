@@ -23,7 +23,15 @@ export async function POST(request: Request) {
       Text to analyze:
       ${text}
 
-      Please format the response in a clear, easy-to-read way.
+      Format your response in Markdown with:
+      - A compelling headline (H1)
+      - Clear section headings (H2, H3)
+      - Bullet points for lists
+      - Bold for important terms
+      - Italics for emphasis
+      - Make it read like a well-structured blog article or educational content
+      
+      The output should be properly formatted Markdown that's easy to read and visually appealing.
     `;
 
     const completion = await openai.chat.completions.create({
@@ -31,7 +39,7 @@ export async function POST(request: Request) {
         {
           role: "system",
           content:
-            "You are a helpful assistant that explains complex text in simple terms, making it easier to understand for readers.",
+            "You are a helpful assistant that explains complex text in simple terms, making it easier to understand for readers. You format your responses in clean, well-structured Markdown.",
         },
         {
           role: "user",
